@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>pl_Mega</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="" />
+    <meta
+      name="keywords"
+      content="bootstrap, business, consulting, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, multipurpose, product landing, shop, software, ui kit, web studio, landing, html5, css3, javascript, gallery, slider, touch, creative"
+    />
+    <meta name="author" content="Createx Studio" />
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg" />
+    <meta name="msapplication-TileColor" content="#766df4" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Page loading styles-->
+    <style>
+      .bg-yellow {
+        background-color: #f99d1c;
+      }
+      th {
+        color: white;
+      }
+
+      .navbar-sticky.navbar-stuck {
+        background-color: #f99d1c !important;
+      }
+
+      .btn-yellow {
+        background-color: #f99d1c !important;
+        color: white !important;
+      }
+
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all 0.4s 0.2s ease-in-out;
+        transition: all 0.4s 0.2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity 0.2s ease-in-out;
+        transition: opacity 0.2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #737491;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: 0.75rem;
+        vertical-align: text-bottom;
+        border: 0.15em solid #766df4;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner 0.75s linear infinite;
+        animation: spinner 0.75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .hero {
+          height: 50vh !important;
+        }
+      }
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector(".page-loading");
+          preloader.classList.remove("active");
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+    </script>
+    <!-- Vendor Styles-->
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="vendor/simplebar/dist/simplebar.min.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="vendor/tiny-slider/dist/tiny-slider.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="vendor/lightgallery.js/dist/css/lightgallery.min.css"
+    />
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="css/theme.min.css" />
+  </head>
+  <!-- Body-->
+  <body class="is-sidebar">
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div>
+        <span>Loading...</span>
+      </div>
+    </div>
+    <main class="page-wrapper">
+      <!-- Navbar (Solid background + shadow)-->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+      <header
+        class="header navbar navbar-expand-lg bg-yellow navbar-shadow navbar-sticky"
+        data-scroll-header
+      >
+        <div class="navbar-search bg-yellow">
+          <div class="container d-flex flex-nowrap align-items-center">
+            <i class="ai-search fs-xl"></i>
+            <input
+              class="form-control form-control-xl navbar-search-field"
+              type="text"
+              placeholder="Search site"
+            />
+            <div class="d-flex align-items-center">
+              <span class="text-muted fs-xs d-none d-sm-inline">Close</span>
+              <button
+                class="btn-close p-2"
+                type="button"
+                data-bs-toggle="search"
+              ></button>
+            </div>
+          </div>
+        </div>
+        <div class="container px-0 px-xl-3">
+          <button
+            class="navbar-toggler ms-n2 me-4"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#primaryMenu"
+          >
+            <span class="navbar-toggler-icon"></span></button
+          ><a
+            class="navbar-brand flex-shrink-0 order-lg-1 mx-auto ms-lg-0 pe-lg-2 me-lg-4"
+            href="https://netfin.id/"
+            ><img
+              class="d-none d-lg-block"
+              src="images/bank_mega_logo.png"
+              alt="Around"
+              width="98" /><img
+              class="d-lg-none"
+              src="images/bank_mega_logo.png"
+              alt="Around"
+              width="58"
+          /></a>
+          <div class="d-flex align-items-center order-lg-3 ms-lg-auto">
+            <div class="navbar-tool">
+              <a
+                class="navbar-tool-icon-box me-lg-2"
+                href="#"
+                data-bs-toggle="search"
+                ><i class="ai-search"></i
+              ></a>
+            </div>
+            <div
+              class="d-lg-block d-none border-start me-4"
+              style="height: 30px"
+            ></div>
+            <div class="d-lg-block d-none text-nowrap">
+              <a href="https://api.whatsapp.com/send?phone=6281558444484&text=">
+                <button class="btn btn-outline-light">Ajukan Sekarang</button>
+              </a>
+            </div>
+          </div>
+          <div class="offcanvas offcanvas-collapse order-lg-2" id="primaryMenu">
+            <div class="offcanvas-header navbar-shadow">
+              <h5 class="mt-1 mb-0">Menu</h5>
+              <button
+                class="btn-close lead"
+                type="button"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body"></div>
+          </div>
+        </div>
+      </header>
+      <!-- Page content-->
+      <!-- Hero-->
+      <section class="container-fluid hero d-none d-lg-block p-5" style="">
+        <img src="images/banner (2).jpg" class="rounded-2" alt="" />
+      </section>
+
+      <section class="container d-md-none d-block px-0">
+        <img
+          class="d-block mx-auto mb-grid-gutter"
+          src="images/banner hero mobile.jpg"
+          alt="Amelie Mayer"
+        />
+        <div class="mx-auto px-3 text-center" style="max-width: 500px">
+          <a href="https://api.whatsapp.com/send?phone=6281558444484&text=">
+            <button class="btn btn-yellow rounded-2">Ajukan Sekarang</button>
+          </a>
+        </div>
+      </section>
+
+      <!-- Section2 -->
+      <section class="container-fluid bg-faded-dark py-4 px-lg-7 px-0">
+        <div class="row align-items-center px-lg-7 p-5">
+          <div class="col-lg-6 mb-md-0 mb-grid-gutter px-lg-7 px-0 pe-0">
+            <div
+              id="carouselExampleAutoplaying"
+              class="carousel slide px-lg-5"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="images/icon-liburan.png"
+                    class="d-block"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="images/icon-modal-usaha.png"
+                    class="d-block"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="images/icon-pendidikan.png"
+                    class="d-block"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="images/icon-renovasi.png"
+                    class="d-block"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="col pe-lg-7">
+            <img
+              src="images/sample_profile.jpg"
+              class="rounded-circle"
+              width="50px"
+              style="border: 10px white"
+              alt=""
+            />
+            <h2 class="mb-2 h4 text-dark">Solusi Pinjaman Dana Tunai</h2>
+
+            <p class="mb-4 pb-2 text-muted">
+              Mega Finance menawarkan fasilitas Pinjaman Dana Tunai dengan
+              jaminan BPKB sepeda motor/mobil, dengan syarat mudah dan proses
+              cepat.
+            </p>
+            <a class="btn btn-yellow" href="#">Hitung Simulasi Kalkulator</a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="hr-darker" />
+      <!-- Keunggulan Kami -->
+      <section class="container-fluid py-3 my-4 my-sm-0">
+        <h2 class="h4 mb-2 pb-2 text-center text-dark">Keunggulan Kami</h2>
+        <div
+          class="pb-4"
+          data-simplebar="init"
+          data-simplebar-auto-hide="false"
+        >
+          <div class="simplebar-wrapper" style="margin: 0px 0px -24px">
+            <div class="simplebar-height-auto-observer-wrapper">
+              <div class="simplebar-height-auto-observer"></div>
+            </div>
+            <div class="simplebar-mask">
+              <div class="simplebar-offset" style="right: 0px; bottom: 0px">
+                <div
+                  class="simplebar-content-wrapper"
+                  style="height: auto; overflow: scroll hidden"
+                >
+                  <div class="simplebar-content" style="padding: 0px 0px 24px">
+                    <div class="d-flex justify-content-between">
+                      <a
+                        class="nav-link-style mx-1"
+                        href="#"
+                        style="min-width: 120px"
+                        ><img
+                          class="d-block bg-faded-dark p-3 mx-auto mb-4"
+                          src="images/syarat-mudah-2.png"
+                          alt="Healthy"
+                        /> </a
+                      ><a
+                        class="nav-link-style mx-1"
+                        href="#"
+                        style="min-width: 120px"
+                        ><img
+                          class="d-block bg-faded-dark p-3 mx-auto mb-4"
+                          src="images/pencairan-cepat-2.png"
+                          alt="Desserts"
+                        /> </a
+                      ><a
+                        class="nav-link-style mx-1"
+                        href="#"
+                        style="min-width: 120px"
+                        ><img
+                          class="d-block bg-faded-dark p-3 mx-auto mb-4"
+                          src="images/jaringan-luas-2.png"
+                          alt="Vegetarian"
+                        /> </a
+                      ><a
+                        class="nav-link-style mx-1"
+                        href="#"
+                        style="min-width: 120px"
+                        ><img
+                          class="d-block bg-faded-dark p-3 mx-auto mb-4"
+                          src="images/perlindungan-lengkap-2.png"
+                          alt="Seafood"
+                        /> </a
+                      ><a
+                        class="nav-link-style mx-1"
+                        href="#"
+                        style="min-width: 120px"
+                        ><img
+                          class="d-block bg-faded-dark p-3 mx-auto mb-4"
+                          src="images/pembayaran-aman-2.png"
+                          alt="Bakery"
+                        /> </a
+                      ><a
+                        class="nav-link-style mx-1"
+                        href="#"
+                        style="min-width: 120px"
+                        ><img
+                          class="d-block bg-faded-dark p-3 mx-auto mb-4"
+                          src="images/layanan-bersahabat-2.png"
+                          alt="Soups"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="simplebar-placeholder"
+              style="width: auto; height: 146px"
+            ></div>
+          </div>
+          <div
+            class="simplebar-track simplebar-horizontal"
+            style="visibility: visible"
+          >
+            <div
+              class="simplebar-scrollbar simplebar-visible"
+              style="
+                width: 142px;
+                display: block;
+                transform: translate3d(188px, 0px, 0px);
+              "
+            ></div>
+          </div>
+          <div
+            class="simplebar-track simplebar-vertical"
+            style="visibility: hidden"
+          >
+            <div
+              class="simplebar-scrollbar simplebar-visible"
+              style="height: 0px; display: none"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tata Cara Pengajuan -->
+      <section class="container-fluid bg-faded-dark position-relative py-2">
+        <div class="position-absolute top-0 start-0"></div>
+        <div class="position-relative zindex-5 p-4 container-fluid">
+          <div class="row align-items-center">
+            <div class="col-lg-3 order-lg-2 pb-lg-0">
+              <h4 class="text-dark text-center fw-bold">Tata Cara Pengajuan</h4>
+            </div>
+            <div class="col-lg-9 p-0 order-lg-3">
+              <div class="row">
+                <div class="col-6 col-md-3">
+                  <div class="text-center">
+                    <img src="images/pengajuan-1.png" alt="" class="w-100" />
+                    <p class="text-dark"><b>Isi Form Pengajuan</b></p>
+                    <p>
+                      Siapkan dan isi data Jaminan BPKB Motor/Mobil serta
+                      lengkapi data diri Sahabat
+                    </p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="text-center">
+                    <img src="images/pengajuan-2.png" alt="" class="w-100" />
+                    <p class="text-dark">
+                      <b>Konfirmasi Data Penganjuan</b>
+                    </p>
+                    <p>
+                      Sahabat akan dihubungi oleh Tim Mega Finance untuk
+                      konfirmasi Pinjaman Jaminan BPKB yang telah Sahabat ajukan
+                    </p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="text-center">
+                    <img src="images/pengajuan-3.png" alt="" class="w-100" />
+                    <p class="text-dark"><b>Survei</b></p>
+                    <p>
+                      Tim Mega Finance akan melakukan survei dan validasi
+                      terkait pengajuan Pinjman Jaminan BPKB Sahabat
+                    </p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="text-center">
+                    <img src="images/pengajuan-4.png" alt="" class="w-100" />
+                    <p class="text-dark"><b>Pencairan Dana</b></p>
+                    <p>
+                      Apabila pengajuan Sahabat disetujui, dana akan segera
+                      dicairkan ke rekening Sahabat atau dapat diambil tunai di
+                      cabang Mega Finance
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabs -->
+
+      <section class="container bg-light py-5 rounded overflow-hidden py-md-5">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 pt-5 pb-3 py-md-5 px-5">
+            <div
+              class="mx-auto me-md-5 me-xl-7 ps-3 py-md-3 order-md-1"
+              style="max-width: 516px"
+            >
+              <form class="needs-validation" id="contactForm">
+                <h2 class="pb-4">Form pengajuan</h2>
+                <p
+                  class="callout d-block d-md-none d-lg-block fs-lg text-muted mb-grid-gutter"
+                >
+                  Ajukan Pinjaman dengan BPKB MOTOR, BPKB Mobil, atau BPKB
+                  Truck.
+                </p>
+                <b>Informasi Diri</b>
+                <div class="input-group mb-3 mt-2">
+                  <i
+                    class="fas fa-user position-absolute top-50 start-0 translate-middle-y ms-3"
+                  ></i>
+                  <input
+                    class="form-control rounded"
+                    type="text"
+                    name="nama"
+                    placeholder="Nama"
+                    required=""
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <i
+                    class="fas fa-mobile-alt position-absolute top-50 start-0 translate-middle-y ms-3"
+                  ></i>
+                  <input
+                    class="form-control rounded"
+                    type="text"
+                    name="hp"
+                    placeholder="Nomor Handphone"
+                    required=""
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <i
+                    class="fas fa-building position-absolute top-50 start-0 translate-middle-y ms-3"
+                  ></i>
+                  <input
+                    class="form-control rounded"
+                    type="text"
+                    name="kota"
+                    placeholder="Kota"
+                    required=""
+                  />
+                </div>
+                <b>Divisi</b>
+                <div class="form-check mt-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="ex-radio-1"
+                    name="divisi"
+                    value="Customer Service"
+                    checked=""
+                  />
+                  <label class="form-check-label" for="ex-radio-1"
+                    >Customer Service</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="ex-radio-2"
+                    name="divisi"
+                    value="Marketing BPKB Mobil"
+                  />
+                  <label class="form-check-label" for="ex-radio-2"
+                    >Marketing BPKB Mobil</label
+                  >
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="ex-radio-3"
+                    name="divisi"
+                    value="Marketing BPKB Motor"
+                  />
+                  <label class="form-check-label" for="ex-radio-3"
+                    >Marketing BPKB Motor</label
+                  >
+                </div>
+                <b>Keterangan Tambahan</b>
+                <div class="mb-3 mt-3 pb-1">
+                  <textarea
+                    class="form-control"
+                    rows="4"
+                    name="keterangan"
+                    placeholder="Ex. Avanza, Xenia, tahun kendaraan dsb"
+                    required=""
+                  ></textarea>
+                </div>
+                <div class="row pt-2">
+                  <div class="col-lg-6 col-md-8">
+                    <button
+                      class="btn btn-primary btn-block"
+                      type="button"
+                      onclick="sendEmail()"
+                    >
+                      Hubungi Kami
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 pt-5 pb-3 py-md-5 text-center">
+            <h2 class="h1 text-center">Hubungi Kami</h2>
+            <p class="text-center pb-4 mb-2 mb-lg-3">
+              Kami Mega Finance *cbg 24 jam siap Melayani
+            </p>
+            <a
+              target="_blank"
+              href="https://api.whatsapp.com/send?phone=6281558444484&text="
+            >
+              <img
+                src="https://netfin.id/site-assets/netfin/button-wa.png"
+                class="rounded mx-auto"
+                alt="Mega finance whatsapp"
+                style="width: 300px"
+              /> </a
+            ><br />
+          </div>
+        </div>
+      </section>
+
+      <hr class="bg-darker" />
+
+      <!-- Tabel -->
+      <section class="container mt-3">
+        <p class="text-center">
+          *) Estimasi nilai pinjaman jaminan BPKB bukan merupakan persetujuan
+          pinjaman dana, bersifat tidak mengikat, dan dapat disesuaikan
+          berdasarkan penilaian lebih lanjut serta kebijakan Mega Finance.
+        </p>
+
+        <div class="">
+          <div class="text-center mb-2">
+            <span style="font-size: 24px"
+              >Skema Angsuran Pinjaman Jamina n BPKB Motor</span
+            >
+          </div>
+          <div class="text-center mb-3">
+            <table
+              class="table table-bordered perhitungan"
+              style="
+                width: 99.9606%;
+                height: 268.75px;
+                border-collapse: collapse;
+                background-color: rgb(206, 212, 217);
+                border-width: 1px;
+              "
+              border="1"
+            >
+              <tbody>
+                <tr style="height: 22.3958px">
+                  <th style="background: #f99d1c">Pinjaman</th>
+                  <th style="background: #f99d1c">12 Bulan</th>
+                  <th style="background: #f99d1c">18 Bulan</th>
+                  <th style="background: #f99d1c">24 Bulan</th>
+                  <th style="background: #f99d1c">36 Bulan</th>
+                  <th style="background: #f99d1c">48 Bulan</th>
+                </tr>
+                <tr style="background: rgb(242, 242, 242); height: 22.3958px">
+                  <td style="width: 15%; height: 22.3958px">50.000.000</td>
+                  <td style="height: 22.3958px">5,027</td>
+                  <td style="height: 22.3958px">3,556</td>
+                  <td style="height: 22.3958px">2,773</td>
+                  <td style="height: 22.3958px">2,030</td>
+                  <td style="height: 22.3958px">1,665</td>
+                </tr>
+                <tr style="background: rgb(242, 242, 242); height: 22.3958px">
+                  <td style="width: 20%; height: 22.3958px">75.000.000</td>
+                  <td style="height: 22.3958px">7,348</td>
+                  <td style="height: 22.3958px">5,166</td>
+                  <td style="height: 22.3958px">4,029</td>
+                  <td style="height: 22.3958px">2,933</td>
+                  <td style="height: 22.3958px">2,395</td>
+                </tr>
+                <tr style="background: rgb(242, 242, 242); height: 22.3958px">
+                  <td style="width: 20%; height: 22.3958px">100.000.000</td>
+                  <td style="height: 22.3958px">9,724</td>
+                  <td style="height: 22.3958px">6,814</td>
+                  <td style="height: 22.3958px">5,314</td>
+                  <td style="height: 22.3958px">3,858</td>
+                  <td style="height: 22.3958px">3,142</td>
+                </tr>
+                <tr style="background: rgb(219, 219, 219); height: 22.3958px">
+                  <td style="width: 20%; height: 22.3958px">125.000.000</td>
+                  <td style="height: 22.3958px">12,044</td>
+                  <td style="height: 22.3958px">8,423</td>
+                  <td style="height: 22.3958px">6,569</td>
+                  <td style="height: 22.3958px">4,761</td>
+                  <td style="height: 22.3958px">3,871</td>
+                </tr>
+                <tr style="background: rgb(219, 219, 219); height: 22.3958px">
+                  <td style="width: 20%; height: 22.3958px">150.000.000</td>
+
+                  <td style="height: 22.3958px">14,365</td>
+                  <td style="height: 22.3958px">10,033</td>
+                  <td style="height: 22.3958px">7,824</td>
+                  <td style="height: 22.3958px">5,664</td>
+                  <td style="height: 22.3958px">4,601</td>
+                </tr>
+                <tr style="background: rgb(219, 219, 219); height: 22.3958px">
+                  <td style="width: 20%; height: 22.3958px">175.000.000</td>
+                  <td style="height: 22.3958px">16,686</td>
+                  <td style="height: 22.3958px">11,642</td>
+                  <td style="height: 22.3958px">9,079</td>
+                  <td style="height: 22.3958px">6,567</td>
+                  <td style="height: 22.3958px">5,330</td>
+                </tr>
+                <tr style="background: rgb(242, 242, 242); height: 22.3958px">
+                  <td style="width: 20%; height: 22.3958px">200.000.000</td>
+
+                  <td style="height: 22.3958px">19,006</td>
+                  <td style="height: 22.3958px">13,252</td>
+                  <td style="height: 22.3958px">10,334</td>
+                  <td style="height: 22.3958px">7,471</td>
+                  <td style="height: 22.3958px">6,060</td>
+                </tr>
+                <tr style="background: rgb(242, 242, 242); height: 22.3958px">
+                  <td style="width: 20%; height: 22.3958px">225.000.000</td>
+
+                  <td style="height: 22.3958px">21,327</td>
+                  <td style="height: 22.3958px">14,861</td>
+                  <td style="height: 22.3958px">11,590</td>
+                  <td style="height: 22.3958px">8,374</td>
+                  <td style="height: 22.3958px">6,769</td>
+                </tr>
+                <tr style="background: rgb(242, 242, 242); height: 22.3958px">
+                  <td style="width: 20%; height: 22.3958px">250.000.000</td>
+
+                  <td style="height: 22.3958px">23,671</td>
+                  <td style="height: 22.3958px">16,487</td>
+                  <td style="height: 22.3958px">12,857</td>
+                  <td style="height: 22.3958px">9,286</td>
+                  <td style="height: 22.3958px">7,526</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer-->
+    <footer class="footer bg-dark pt-5 pt-md-6">
+      <div class="container pt-3 pb-0 pt-md-0 pb-md-3">
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <div class="widget widget-light pb-2 mb-4">
+              <img src="images/bank_mega_logo.png" width="90px" alt="" />
+              <p class="text-light fw-semibold mt-3">PT Mega Finance</p>
+              <ul>
+                <li class="text-light">
+                  Jl. Wijaya I, No. 19 Kebayoran Baru, Jakarta Selatan
+                </li>
+                <li>
+                  <a class="widget-link" href="mailto:support@example.com"
+                    ><i class="ai-mail fs-lg me-2"></i>Phone (021) 22777999</a
+                  >
+                </li>
+                <li>
+                  <a class="widget-link" href="tel:9107848015"
+                    ><i class="ai-phone fs-lg me-2"></i>Email:
+                    halomega@megafinance.co.id</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4 d-sm-none d-lg-flex"></div>
+          <div class="col-md-4">
+            <div class="widget widget-light pb-2 mb-4">
+              <h4 class="widget-title">Follow</h4>
+              <a
+                class="btn-social bs-outline bs-lg bs-light bs-facebook me-2"
+                href="#"
+                ><i class="ai-facebook"></i></a
+              ><a
+                class="btn-social bs-outline bs-lg bs-light bs-twitter me-2"
+                href="#"
+                ><i class="ai-twitter"></i></a
+              ><a
+                class="btn-social bs-outline bs-lg bs-light bs-instagram me-2"
+                href="#"
+                ><i class="ai-instagram"></i></a
+              ><a
+                class="btn-social bs-outline bs-lg bs-light bs-pinterest"
+                href="#"
+                ><i class="ai-pinterest"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <p class="fs-sm mb-3 order-md-1">
+          <span class="text-light opacity-50 me-1"
+            >&copy; All rights reserved. Made by</span
+          ><a
+            class="nav-link-style nav-link-light"
+            href="https://netfin.id/"
+            target="_blank"
+            rel="noopener"
+            >Netfin.id</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <!-- Back to top button--><a
+      class="btn-scroll-top"
+      href="#top"
+      data-scroll
+      data-fixed-element
+      ><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span
+      ><i class="btn-scroll-top-icon ai-arrow-up"> </i
+    ></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="vendor/lightgallery.js/dist/js/lightgallery.min.js"></script>
+    <script src="vendor/lg-video.js/dist/lg-video.min.js"></script>
+    <!-- Main theme script-->
+    <script src="js/theme.min.js"></script>
+  </body>
+</html>
